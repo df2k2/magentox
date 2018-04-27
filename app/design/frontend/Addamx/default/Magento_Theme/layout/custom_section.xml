@@ -1,0 +1,28 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <!-- Remove local resources -->
+        <remove src="css/styles-m.css" />
+        <remove src="my-js.js"/>
+        <remove src="Magento_Catalog::js/compare.js" />
+								
+	    <!-- Remove external resources -->
+        <remove src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"/>
+    </head>
+    <body>
+        <container name="custom.section.container" as="cus-sec-cntr" label="Custom Sections" before="-" after="-" htmlId="cus-cntr-id" htmlClass="cus-cntr-class">
+            <block class="agento\Framework\View\Element\Template" name="custom.section.one" as="cus-sec" cacheable="false" before="-" after="-" template="Magento_Theme::custom_section.phtml">
+                <arguments>
+                    <argument name="title" translate="true" xsi:type="string">Custom Section Title</argument>
+                    <argument name="label" translate="true" xsi:type="string">cutom-section-label</argument>
+                </arguments>
+                <action method="setText">
+                    <argument name="text" translate="true" xsi:type="string">Text</argument>
+                </action>
+            </block>
+            <block class="agento\Framework\View\Element\Template" name="custom.section.two" as="cus-sec-two" cacheable="false" after="-" template="Magento_Theme::custom_section.phtml" />
+        </container>
+        <referceBlock name="custom.section.two" remove="true" />
+        <referenceContainer name="custom.section.container"  display="true" />
+        <move element="custom.section.one" as="cus-new" destination="custom.section.container" after="-" before="-">
+    </body>
+</page> 
