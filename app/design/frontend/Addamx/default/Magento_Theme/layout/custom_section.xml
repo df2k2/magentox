@@ -23,6 +23,6 @@
         </container>
         <referceBlock name="custom.section.two" remove="true" />
         <referenceContainer name="custom.section.container"  display="true" />
-        <move element="custom.section.one" as="cus-new" destination="custom.section.container" after="-" before="-">
+        <move element="custom.section.one" as="cus-new" destination="custom.section.container" after="-" before="-" />
     </body>
 </page> 

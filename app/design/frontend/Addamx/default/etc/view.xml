@@ -190,17 +190,22 @@
                 <height>300</height>
             </image>
         </images>
-        <images module="Custom_Blog">
+        <!-- <images module="Custom_Blog">
             <image id="catalog_list_image" type="thumbnail">
                 <width>140</width>
-                <height>140</height>
-                <constraion>true</constraion><!-- 不会拉大图片; default: true; -->
-                <aspect_ratio>true</aspect_ratio><!-- 保持比例; default: true; -->
-                <frame>false</frame><!-- 保持比例时, 不裁剪; default: true; -->
-                <transparency>true</transparency><!-- default: true; -->
-                <background>[255,255,255]</background><!-- 不透明时的背景色 -->
-            </image>
-        </images>
+                <height>140</height> -->
+                <!-- 不会拉大图片; default: true; -->
+                <!-- <constraion>true</constraion> -->
+                <!-- 保持比例; default: true; -->
+                <!-- <aspect_ratio>true</aspect_ratio> -->
+                <!-- 保持比例时, 不裁剪; default: true; -->
+                <!-- <frame>false</frame> -->
+                <!-- default: true; -->
+                <!-- <transparency>true</transparency> -->
+                <!-- 不透明时的背景色 -->
+                <!-- <background>[255,255,255]</background> -->
+            <!-- </image>
+        </images> -->
     </media>
     <vars module="Magento_Catalog">
 
