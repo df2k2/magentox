@@ -8,4 +8,6 @@
             </arguments>
         </referenceBlock>
     </body>
+    <!-- 一个页面的layout只能有一个handle, 重复申明会覆盖 -->
+    <!-- <update handle="custom_section"/> -->
 </page> 

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="layout_generate_blocks_after">
+        <observer name="infinity_dev_layout_generate_blocks_after" instance="Infinity\Dev\Observer\Layout" />
+    </event>
+    <event name="controller_action_predispatch">
+        <observer name="infinity_dev_controller_action_predispatch" instance="Infinity\Dev\Observer\Predispatch" />
+    </event>
+</config>
