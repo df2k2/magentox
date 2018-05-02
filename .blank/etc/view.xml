@@ -17,14 +17,10 @@
                 <height>300</height>
             </image>
             <image id="cart_page_product_thumbnail" type="small_image">
-                <width>165</width>
-                <height>165</height>
+                <width>110</width>
+                <height>160</height>
             </image>
             <image id="category_page_grid" type="small_image">
-                <width>240</width>
-                <height>300</height>
-            </image>
-            <image id="category_page_grid-1" type="small_image">
                 <width>240</width>
                 <height>300</height>
             </image>
@@ -53,8 +49,8 @@
                 <height>100</height>
             </image>
             <image id="mini_cart_product_thumbnail" type="thumbnail">
-                <width>75</width>
-                <height>75</height>
+                <width>78</width>
+                <height>78</height>
             </image>
             <image id="new_products_content_widget_grid" type="small_image">
                 <width>240</width>
@@ -62,7 +58,7 @@
             </image>
             <image id="new_products_content_widget_list" type="small_image">
                 <width>270</width>
-                <height>340</height>
+                <height>270</height>
             </image>
             <image id="new_products_images_only_widget" type="small_image">
                 <width>78</width>
@@ -82,7 +78,7 @@
             </image>
             <image id="product_page_image_medium" type="image">
                 <width>700</width>
-                <height>560</height>
+                <height>700</height>
             </image>
             <image id="product_page_image_medium_no_frame" type="image">
                 <width>700</width>
@@ -90,20 +86,20 @@
                 <frame>false</frame>
             </image>
             <image id="product_page_image_small" type="thumbnail">
-                <width>88</width>
-                <height>110</height>
+                <width>90</width>
+                <height>90</height>
             </image>
             <image id="product_page_main_image" type="image">
                 <width>700</width>
-                <height>560</height>
+                <height>700</height>
             </image>
             <image id="product_page_main_image_default" type="image">
                 <width>700</width>
-                <height>560</height>
+                <height>700</height>
             </image>
             <image id="product_page_more_views" type="thumbnail">
-                <width>88</width>
-                <height>110</height>
+                <width>90</width>
+                <height>90</height>
             </image>
             <image id="product_stock_alert_email_product_image" type="small_image">
                 <width>76</width>
@@ -131,7 +127,7 @@
             </image>
             <image id="recently_compared_products_list_content_widget" type="small_image">
                 <width>270</width>
-                <height>340</height>
+                <height>207</height>
             </image>
             <image id="recently_viewed_products_grid_content_widget" type="small_image">
                 <width>240</width>
@@ -147,11 +143,11 @@
             </image>
             <image id="recently_viewed_products_list_content_widget" type="small_image">
                 <width>270</width>
-                <height>340</height>
+                <height>270</height>
             </image>
             <image id="related_products_list" type="small_image">
-                <width>152</width>
-                <height>190</height>
+                <width>140</width>
+                <height>140</height>
             </image>
             <image id="review_page_product_image" type="small_image">
                 <width>285</width>
@@ -174,8 +170,8 @@
                 <height>90</height>
             </image>
             <image id="upsell_products_list" type="small_image">
-                <width>152</width>
-                <height>190</height>
+                <width>140</width>
+                <height>140</height>
             </image>
             <image id="wishlist_sidebar_block" type="thumbnail">
                 <width>75</width>
@@ -190,22 +186,6 @@
                 <height>300</height>
             </image>
         </images>
-        <!-- <images module="Custom_Blog">
-            <image id="catalog_list_image" type="thumbnail">
-                <width>140</width>
-                <height>140</height> -->
-                <!-- 不会拉大图片; default: true; -->
-                <!-- <constraion>true</constraion> -->
-                <!-- 保持比例; default: true; -->
-                <!-- <aspect_ratio>true</aspect_ratio> -->
-                <!-- 保持比例时, 不裁剪; default: true; -->
-                <!-- <frame>false</frame> -->
-                <!-- default: true; -->
-                <!-- <transparency>true</transparency> -->
-                <!-- 不透明时的背景色 -->
-                <!-- <background>[255,255,255]</background> -->
-            <!-- </image> -->
-        <!-- </images> -->
     </media>
     <vars module="Magento_Catalog">
 
@@ -227,13 +207,12 @@
             <var name="fullscreen">
                 <var name="nav">thumbs</var> <!-- Fullscreen navigation style (false/thumbs/dots) -->
                 <var name="loop">true</var> <!-- Fullscreen navigation loop (true/false/null) -->
-                <var name="arrows">true</var> <!-- Turn on/off arrows on the sides preview in fullscreen (true/false/null) -->
+                <var name="arrows">false</var> <!-- Turn on/off arrows on the sides preview in fullscreen (true/false/null) -->
                 <var name="caption">false</var> <!-- Display alt text as image title in fullscreen(true/false) -->
                 <var name="navdir">horizontal</var> <!--Sliding direction of thumbnails in fullscreen(horizontal/vertical)  -->
-                <var name="navarrows">false</var> <!-- Turn on/off on the thumbs navigation sides arrows(true/false) -->
                 <var name="navtype">slides</var> <!-- Sliding type of thumbnails (slides/thumbs) -->
                 <var name="transition">
-                    <var name="effect">slide</var> <!-- Sets transition effect for slides changing (slide/crossfade/dissolve) -->
+                    <var name="effect">dissolve</var> <!-- Sets transition effect for slides changing (slide/crossfade/dissolve) -->
                     <var name="duration">500</var> <!-- Sets transition duration in ms -->
                 </var>
             </var>
@@ -275,11 +254,6 @@
     <vars module="Magento_Bundle">
         <var name="product_summary_image_size">58</var>         <!-- New Product image size used for summary block-->
     </vars>
-
-    <vars module="Magento_ConfigurableProduct">
-        <var name="gallery_switch_strategy">prepend</var>
-    </vars>
-
     <vars module="Js_Bundle">
         <var name="bundle_size">1MB</var>
     </vars>

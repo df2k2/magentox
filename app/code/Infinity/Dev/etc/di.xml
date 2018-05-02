@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="Magento\Developer\Model\TemplateEngine\Decorator\DebugHints"
+                type="Infinity\Dev\Override\Model\TemplateEngine\Decorator\DebugHints" />
+
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="infinity_hello" xsi:type="object">Infinity\Dev\Console\Command\HelloCommand</item>
+                <item name="infinity_imagefix" xsi:type="object">Infinity\Dev\Console\Command\ImageFixCommand</item>
+                <item name="dev_module_associator" xsi:type="object">Infinity\Dev\Console\Command\ModuleAssociator</item>
+            </argument>
+        </arguments>
+    </type>
+
+</config>
