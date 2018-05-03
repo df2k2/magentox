@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <!-- level-0 menu -->
+        <add
+            id="Custom_HelloWorld::helloworld"
+            title="Hello World"
+            module="Custom_HelloWorld"
+            sortOrder="0"
+            resource="Custom_HelloWorld::helloworld"/>
+        <!-- 
+        parent: who's submenu 
+        action: define the url of the page which this menu link to
+        resource: defined the ACL rule which the admin user must have
+        -->
+        <add 
+            parent="Custom_HelloWorld::helloworld"
+            id="Custom_HelloWorld::post" title="Manage Posts" module="Custom_HelloWorld" sortOrder="10" action="custom_helloworld/post" resource="Custom_HelloWorld::post" />
+        <!-- 下面的action指向了scopeconfig页面 -->
+        <add 
+            parent="Custom_HelloWorld::helloworld"
+            id="Custom_HelloWorld::hello_configuration" title="Configuration" module="Custom_HelloWorld" sortOrder="99"  action="adminhtml/system_config/edit/section/helloworld" resource="Custom_HelloWorld::helloworld_configuration"/>
+    </menu>
+</config>
