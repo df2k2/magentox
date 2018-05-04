@@ -1,7 +1,7 @@
 <?php
 namespace Custom\HelloWorld\Controller\Index;
 
-class Index extends \Magento\Framework\App\Action\Action
+class Model extends \Magento\Framework\App\Action\Action
 {
 	protected $_pageFactory;
 

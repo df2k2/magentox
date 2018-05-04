@@ -13,4 +13,14 @@
             <argument name="resourceModel" xsi:type="string">Custom\HelloWorld\Model\ResourceModel\Post</argument>
         </arguments>
     </virtualType>
+    <type name="Custom\HelloWorld\Controller\Index\Plugin">
+        <plugin name="Custom_HelloWorld_Plugin" type="Custom\HelloWorld\Plugin\ExPlugin" sortOrder="10" disabled="false"  />
+    </type>
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="exampleSayHello" xsi:type="object">Custom\HelloWorld\Console\Sayhello</item>
+            </argument>
+        </arguments>
+   </type>
 </config>
