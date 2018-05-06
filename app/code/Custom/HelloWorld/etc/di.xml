@@ -23,4 +23,8 @@
             </argument>
         </arguments>
    </type>
+   <!-- rewrite controller/model/block/..... -->
+    <preference for="Magento\Customer\Controller\Account\Create" type="Custom\HelloWorld\Controller\Account\Create" />
+    <!-- webapi -->
+	<preference for="Custom\HelloWorld\Api\PostManagementInterface" type="Custom\HelloWorld\Model\PostManagement"/>
 </config>
