@@ -41,25 +41,7 @@
 </script> -->
 
 
-<hr>
 
-<h2>Alert: 警告弹窗</h2>
-<div><button id="alert">Alert</button></div>
-<script>
-require([
-    'Magento_Ui/js/modal/alert'
-], function(alert) {
-    document.getElementById('alert').addEventListener('click', function(){
-        alert({
-            title: 'Some title',
-            content: 'Some content',
-            actions: {
-                always: function(){}
-            }
-        });
-    })
-});
-</script>
 
 <hr>
 
@@ -119,34 +101,7 @@ require([
 </script>
 
 
-<hr>
 
-
-<h2>Confirmation: 确认弹窗</h2>
-<div><button id="confirm">Confirm</button></div>
-<script>
-require([
-    'Magento_Ui/js/modal/confirm'
-], function(confirmation) {
-    //https://devdocs.magento.com/guides/v2.2/javascript-dev-guide/widgets/widget_confirm.html
-    document.getElementById('confirm').addEventListener('click', function(){
-        confirmation({
-            title: 'Some title',
-            content: 'Some content',
-            actions: {
-                confirm: function(){
-                    console.log('confirm')
-                },
-                cancel: function(){
-                    console.log('cancel')
-                },
-                always: function(){}
-            }
-        });
-    })
-
-});
-</script>
 
 
 <hr>
@@ -280,18 +235,104 @@ require(['jquery', 'mage/menu'], function($){
 <hr>
 
 <h2>modal</h2>
-<div id="modal">modal</div>
-<div><button id="openmodal">open modal</button></div>
+
+<div id="modal1">
+    <div data-role="content">
+        this is popup-modal!
+    </div>
+</div>
+<button id="openmodal1">open popup-modal</button>
+
+<div id="modal2">
+    <div data-role="content">
+        this is slide-modal!
+    </div>
+</div>
+<button id="openmodal2">open slide-modal</button>
+
+<div id="modal3">
+    <div data-role="content">
+        this is custom-modal!
+    </div>
+</div>
+<button id="openmodal3">open custom-modal</button>
+
 <script>
 require(['jquery', 'Magento_Ui/js/modal/modal'], function($){
-    $('#modal').modal({
+    $('#modal1').modal({
         type: 'popup',  //module-ui\view\base\web\templates\modal\modal-popup.html
         modalClass: '',
         responsive: '',
-        title: 'title!'
+        title: 'title!',
+        subtitle: 'subtitle!'
     });
-    $('#openmodal').click(function(){
-        $('#modal').modal('openModal');
+    $('#openmodal1').click(function(){
+        $('#modal1').modal('openModal');
     })
+    $('#modal2').modal({type: 'slide'});
+    $('#openmodal2').click(function(){
+        $('#modal2').modal('openModal')
+    })
+ 
 })
 </script>
+
+<hr>
+
+
+<h2>Confirmation: 确认弹窗</h2>
+<div><button id="confirm">Confirm</button></div>
+<script>
+require([
+    'Magento_Ui/js/modal/confirm'
+], function(confirmation) {
+    //https://devdocs.magento.com/guides/v2.2/javascript-dev-guide/widgets/widget_confirm.html
+    document.getElementById('confirm').addEventListener('click', function(){
+        confirmation({
+            title: 'Some title',
+            content: 'Some content',
+            actions: {
+                confirm: function(){
+                    console.log('confirm')
+                },
+                cancel: function(){
+                    console.log('cancel')
+                },
+                always: function(){}
+            }
+        });
+    })
+
+});
+</script>
+
+<hr>
+
+<h2>Alert: 警告弹窗</h2>
+<div><button id="alert">Alert</button></div>
+<script>
+require([
+    'Magento_Ui/js/modal/alert'
+], function(alert) {
+    document.getElementById('alert').addEventListener('click', function(){
+        alert({
+            title: 'Some title',
+            content: 'Some content',
+            actions: {
+                always: function(){}
+            }
+        });
+    })
+});
+</script>
+
+
+<hr>
+
+<h2>Tabs</h2>
+<div id="tabs" data-mage-init='{"tabs": {}}'>
+<div data-role="collapsible">collapsible1</div>
+<div data-role="content">content1</div>
+<div data-role="collapsible">collapsible2</div>
+<div data-role="content">content2</div>
+</div>
