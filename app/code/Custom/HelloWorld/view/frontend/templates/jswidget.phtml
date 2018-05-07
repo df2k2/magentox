@@ -1,0 +1,229 @@
+<h2>accordion: 手风琴面板</h2>
+<div id="accordion" data-mage-init='{ "accordion": {} }'>
+    <div data-role="collapsible">
+        <div data-role="trigger">
+            <span>Title 1</span>
+        </div>
+    </div>
+    <div data-role="content">Content 1</div>
+
+    <div data-role="collapsible">
+        <div data-role="trigger">
+            <span>Title 2</span>
+        </div>
+    </div>
+    <div data-role="content">Content 2</div>
+
+    <div data-role="collapsible">
+        <div data-role="trigger">
+            <span>Title 3</span>
+        </div>
+    </div>
+    <div data-role="content">Content 3</div>
+</div>
+
+<!-- 声明方式 1 : data-mage-init='{ "accordion": {} }' -->
+<!-- 声明方式 2  -->
+<script>
+    require([
+        'jquery',
+        'accordion'], function ($) {
+        $("#accordion").accordion();
+    });
+</script>
+<!-- 声明方式 3  -->
+<!-- <script type="text/x-magento-init">
+{
+    "#accordion": {
+        "accordion": {}
+    }
+}
+</script> -->
+
+
+<hr>
+
+<h2>Alert: 警告弹窗</h2>
+<div><button id="alert">Alert</button></div>
+<script>
+require([
+    'Magento_Ui/js/modal/alert'
+], function(alert) {
+    document.getElementById('alert').addEventListener('click', function(){
+        alert({
+            title: 'Some title',
+            content: 'Some content',
+            actions: {
+                always: function(){}
+            }
+        });
+    })
+});
+</script>
+
+<hr>
+
+<h2>datepicker: 日期选择器</h2>
+<div><input type="text" readonly id="calendar"></div>
+<script>
+require([
+    'jquery',
+    'mage/calendar'
+], function ( $ ) {
+    // http://api.jqueryui.com/datepicker/
+    // $.extend(true, $, {
+    //     calendarConfig: {
+    //         dateFormat: "yy-mm-dd"
+    //     }
+    // });
+    $("#calendar").datepicker({
+        dateFormat: "yy-mm-dd"
+    });
+});
+</script>
+
+
+
+<hr>
+
+
+
+<h2>collapsible: </h2>
+
+<div id="collapsible">
+    <div data-role="title">
+        <div data-role="trigger">
+            <span>Title 1</span>
+        </div>
+    </div>
+    <div data-role="content">Content 1</div>
+
+</div>
+<script>
+require([
+    'jquery',
+    'mage/collapsible'
+], function ( $ ) {
+    //https://devdocs.magento.com/guides/v2.2/javascript-dev-guide/widgets/widget_collapsible.html
+    $('#collapsible').collapsible({
+        icons: {
+            header: 'plus',
+            activeHeader: 'minus'
+        },
+        animate: {
+            duration:1000,
+            easing:"easeOutCubic"
+        }
+    });
+});
+</script>
+
+
+<hr>
+
+
+<h2>Confirmation: 确认弹窗</h2>
+<div><button id="confirm">Confirm</button></div>
+<script>
+require([
+    'Magento_Ui/js/modal/confirm'
+], function(confirmation) {
+    //https://devdocs.magento.com/guides/v2.2/javascript-dev-guide/widgets/widget_confirm.html
+    document.getElementById('confirm').addEventListener('click', function(){
+        confirmation({
+            title: 'Some title',
+            content: 'Some content',
+            actions: {
+                confirm: function(){
+                    console.log('confirm')
+                },
+                cancel: function(){
+                    console.log('cancel')
+                },
+                always: function(){}
+            }
+        });
+    })
+
+});
+</script>
+
+
+<hr>
+
+
+
+<h2>DropdownDialog: 下拉对话框</h2>
+<div><button id="handlerdialog">Dialog</button></div>
+
+<div id="dialog" title="Basic dialog">
+  <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+</div>
+
+<script>
+//https://devdocs.magento.com/guides/v2.2/javascript-dev-guide/widgets/widget_dialog.html
+require([
+    'jquery',
+    'mage/dropdown'
+], function($){
+    $("#dialog").dropdownDialog({
+        triggerTarget: '#handlerdialog',
+        closeOnMouseLeave: false,
+        closeOnClickOutside: false
+    });
+})
+
+</script>
+
+
+<hr>
+
+<h2>gallery</h2>
+<div>
+    <a href="https://devdocs.magento.com/guides/v2.2/javascript-dev-guide/widgets/widget_gallery.html">https://devdocs.magento.com/guides/v2.2/javascript-dev-guide/widgets/widget_gallery.html</a>
+</div>
+
+
+<hr>
+
+<h2>List</h2>
+
+<div id="list">
+    <div data-role="item"><%= data._index_ %>&nbsp;&nbsp;<span data-button="remove">(-)</span></div>
+    <div data-role="container"></div>
+    <button data-button="add">(+)</button>
+</div>
+
+
+<script>
+require(['jquery', 'mage/list'], function($) {
+    $('#list').list({
+        templateWrapper: '<fieldset></fieldset>'
+    });
+})
+</script>
+
+
+<hr>
+
+<h2>Magnifier: 放大镜</h2>
+<a href="https://devdocs.magento.com/guides/v2.2/javascript-dev-guide/widgets/widget_gallery_mg.html">https://devdocs.magento.com/guides/v2.2/javascript-dev-guide/widgets/widget_gallery_mg.html</a>
+
+<hr>
+
+
+<h2>Loader</h2>
+<div><button id="showloader">show loader</button><button id="hideloader">hide loader</button></div>
+<script>
+require(['jquery', 'mage/loader'], function($) {
+    var loader = $('body').loader();
+    $('#showloader').click(function(){
+        loader.loader('show');
+        $('#hideloader').css({'position': 'fixed', 'z-index': '10000', 'left': '50%', 'bottom': '50%'})
+    })
+    $('#hideloader').click(function(){
+        loader.loader('hide');
+        $(this).css({'position': 'static'})
+    })
+})
+</script>
