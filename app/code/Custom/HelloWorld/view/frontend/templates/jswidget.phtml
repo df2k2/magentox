@@ -216,6 +216,7 @@ require(['jquery', 'mage/list'], function($) {
 <div><button id="showloader">show loader</button><button id="hideloader">hide loader</button></div>
 <script>
 require(['jquery', 'mage/loader'], function($) {
+    // body 已经添加了 loader 和 loaderAjax 参考"module-theme\view\base\templates\root.phtml"
     var loader = $('body').loader();
     $('#showloader').click(function(){
         loader.loader('show');
@@ -224,6 +225,73 @@ require(['jquery', 'mage/loader'], function($) {
     $('#hideloader').click(function(){
         loader.loader('hide');
         $(this).css({'position': 'static'})
+    })
+    
+})
+</script>
+
+
+<hr>
+
+<h2>Menu: 菜单</h2>
+<style>
+    #menu-col {display: flex;justify-content: space-between;}
+</style>
+<ul id="menu-col">
+    <li class="ui-menu-item">Adamsville</li>
+    <li class="ui-menu-item"><span class="ui-icon ui-icon-print"></span>Addyston</li>
+    <li class="ui-menu-item">Delphi
+        <ul>
+            <li class="ui-state-disabled">Ada</li>
+            <li>Saarland</li>
+            <li>Salzburg</li>
+        </ul>
+    </li>
+    <li class="ui-menu-item">Saarland</li>
+    <li class="ui-menu-item">Salzburg
+        <ul>
+            <li class="ui-menu-item">Delphi
+                <ul>
+                    <li class="ui-menu-item">Ada</li>
+                    <li class="ui-menu-item">Saarland</li>
+                    <li class="ui-menu-item">Salzburg</li>
+                </ul>
+            </li>
+            <li class="ui-menu-item">Delphi
+                <ul>
+                    <li class="ui-menu-item">Ada</li>
+                    <li class="ui-menu-item"> - </li>
+                    <li class="ui-menu-item">Saarland</li>
+                    <li class="ui-menu-item">Salzburg</li>
+                </ul>
+            </li>
+            <li class="ui-menu-item">Perch</li>
+        </ul>
+    </li>
+</ul>
+<script>
+require(['jquery', 'mage/menu'], function($){
+    $('#menu-col').menu({});
+})
+</script>
+
+
+
+<hr>
+
+<h2>modal</h2>
+<div id="modal">modal</div>
+<div><button id="openmodal">open modal</button></div>
+<script>
+require(['jquery', 'Magento_Ui/js/modal/modal'], function($){
+    $('#modal').modal({
+        type: 'popup',  //module-ui\view\base\web\templates\modal\modal-popup.html
+        modalClass: '',
+        responsive: '',
+        title: 'title!'
+    });
+    $('#openmodal').click(function(){
+        $('#modal').modal('openModal');
     })
 })
 </script>
