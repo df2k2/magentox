@@ -1,7 +1,7 @@
 <?php
-namespace Custom\HelloWorld\Controller\Index;
+namespace Custom\HelloWorld\Controller\JsPage;
 
-class JsWidget extends \Magento\Framework\App\Action\Action
+class ProductRepo extends \Magento\Framework\App\Action\Action
 {
 	protected $_pageFactory;
 	public function __construct(

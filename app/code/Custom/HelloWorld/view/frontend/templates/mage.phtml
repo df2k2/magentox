@@ -1,0 +1,44 @@
+<h2>data-mage-init</h2>
+<pre>
+//参考: lib\web\mage\apply\main.js
+
+function init(el, config, component) {
+    require([component], function (fn) {
+
+        if (typeof fn === 'object') {
+            fn = fn[component].bind(fn);
+        }
+
+        if (_.isFunction(fn)) {
+            fn(config, el);
+        } else if ($(el)[component]) {
+            $(el)[component](config);
+        }
+    });
+}
+</pre>
+
+(1)object
+<p data-mage-init='{"mycss": {"background": "red"}}'>Test <code>data-mage-init</code></p>
+
+(2)function
+<p data-mage-init='{"mycss2": {}}'>Test <code>data-mage-init</code></p>
+
+(3)$.fn.component_name
+<p data-mage-init='{"mycss3": {}}'>Test <code>data-mage-init</code></p>
+
+
+<br>
+<hr>
+<br>
+
+
+<h2>text/x-magento-init</h2>
+<div id="x-magento">test <code>x-magento-init</code></div>
+<script type="text/x-magento-init">
+{
+    "#x-magento": {
+        "mycss": {"background": "aquamarine"}
+    }
+}
+</script>
