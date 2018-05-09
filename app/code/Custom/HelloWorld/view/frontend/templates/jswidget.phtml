@@ -181,7 +181,7 @@ require(['jquery', 'mage/loader'], function($) {
         loader.loader('hide');
         $(this).css({'position': 'static'})
     })
-    
+
 })
 </script>
 
@@ -273,7 +273,7 @@ require(['jquery', 'Magento_Ui/js/modal/modal'], function($){
     $('#openmodal2').click(function(){
         $('#modal2').modal('openModal')
     })
- 
+
 })
 </script>
 
@@ -336,3 +336,159 @@ require([
     <div data-role="collapsible">collapsible2</div>
     <div data-role="content">content2</div>
 </div>
+
+<br>
+<hr>
+<hr>
+<br>
+
+<h2>Create Jquery widget</h2>
+<div id="cus-prog"></div>
+<script>
+require(['jquery', 'jquery/ui'], function($){
+    $.widget( "custom.progressbar", {
+        options: {
+            value: 0
+        },
+        _create: function() {
+            this.element.addClass( "progressbar" );  
+            this.refresh();
+        },
+        _setOption: function( key, value ) {
+            if ( key === "value" ) {
+                value = this._constrain( value );
+            }
+            this._super( key, value );
+        },
+        _setOptions: function( options ) {
+            this._super( options );
+            this.refresh();
+        },
+        // Create a public method.
+        refresh: function() {
+            var progress = this.options.value + "%";
+            this.element.text( progress );
+            if ( this.options.value == 100 ) {
+                //之后可以在options中添加`complete`选项
+                this._trigger( "complete", null, { value: 100 } );
+            } 
+        },
+        // Create a private method.
+        _constrain: function( value ) {
+            if ( value > 100 ) {
+                value = 100;
+            }
+            if ( value < 0 ) {
+                value = 0;
+            }
+            return value;
+        },
+        _destroy: function() {
+            this.element
+                .removeClass("progressbar")
+                .text("");
+        }
+    });
+    $('#cus-prog')
+        .progressbar({
+            complete: function( event, data ) {
+                console.log("Callbacks are great!");
+            }
+        })
+        //之后绑定的事件前缀为`progressbar`
+        .bind( "progressbarcomplete", function( event, data ) {
+            console.log( "Events bubble and support many handlers for extreme flexibility." );
+            console.log( "The progress bar value is " + data.value );
+        });
+    
+    //原型扩展
+    $.custom.progressbar.prototype.reset = function() {
+        this._setOptions({value: 0});
+    }
+
+    setTimeout(() => {
+        $('#cus-prog').progressbar('option', 'value', 100 );
+    }, 2000);
+    setTimeout(() => {
+        $('#cus-prog').progressbar('reset');
+    }, 4000);
+})
+</script>
+
+
+<hr>
+<h2>Extend Magento Widget</h2>
+<pre>
+define([
+  'jquery',
+  'jquery/ui',
+  'mage/[widget.name]' // usually widget can be found in /lib/web/mage dir
+], function($){
+ 
+  $.widget('[your_namespace].[your_widget_name]', $.mage.[widget.name], { ... });
+ 
+  return $.[your_namespace].[your_widget_name];
+});
+
+</pre>
+
+
+<hr>
+<h2>Extend Ui component</h2>
+<pre>
+define([
+  'Magento_Ui/js/grid/filters/filters'
+], function(Filters){
+ 
+  return Filters.extend({
+ 
+    defaults: { ... }, // properties with default values
+    ... // methods of your component
+  });
+});
+</pre>
+
+
+<hr>
+<h2>Using javascript mixins</h2>
+<pre>
+//扩展原来的对象
+define(['jquery'], function ($) {
+  'use strict';
+ 
+  var mixin = {
+    domore: function (elem) {
+      console.log(elem);
+    }
+  };
+ 
+  return function (target) {
+    return $.extend(target, mixin);
+  };
+});
+
+
+//扩展原来的函数
+define([
+    'jquery',
+    'mage/utils/wrapper',
+    'Magento_CheckoutAgreements/js/model/agreements-assigner'
+], function ($, wrapper, agreementsAssigner) {
+    'use strict';
+
+    return function (placeOrderAction) {
+
+        /** Override default place order action and add agreement_ids to request */
+        return wrapper.wrap(placeOrderAction, function (originalAction, paymentData, messageContainer) {
+            agreementsAssigner(paymentData);
+
+            return originalAction(paymentData, messageContainer);
+        });
+    };
+});
+</pre>
+<script>
+require(['jquery', 'mycss'], function($, mycss) {
+    console.log(mycss); //结果显示mycss已添加了`domore`方法
+})
+</script>
