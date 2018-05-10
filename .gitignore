@@ -62,5 +62,4 @@ atlassian*
 /generated
 /bin
 /pub
-/dev/tests
-/dev/travis
+/dev
