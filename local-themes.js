@@ -10,7 +10,7 @@ module.exports = {
       'css/styles-l',
       'css/email',
       'css/email-inline',
-      'css/testLess'
+      'css/style-new'
     ],
     dsl: 'less'
   },
