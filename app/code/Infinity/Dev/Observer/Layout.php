@@ -16,7 +16,10 @@ class Layout implements ObserverInterface
         if(isset($_GET['debug']) && $_GET['debug'] == 'layout') {
             /* @var $layout \Magento\Framework\View\Layout */
             $layout = $observer->getEvent()->getLayout();
-            $xml = $layout->getXmlString();
+            $xml = $layout
+                /* @var $layout \Magento\Framework\Simple\ */
+                ->getNode()
+                ->asNiceXml('', 1);//beauty output
             //unlink(BP . '/var/log/layout_block.xml');
             header('Content-Disposition: attachment; filename="layout.xml"');
             echo $xml;
