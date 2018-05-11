@@ -58,7 +58,7 @@ class DebugHints extends \Magento\Developer\Model\TemplateEngine\Decorator\Debug
         return <<<HTML
 <!-- ${id}: ${blockHint} 【${tmpHint}】-->
 {$result}
-<!--/ ${id} -->
+<!--/${id} -->
 HTML;
     }
 }
