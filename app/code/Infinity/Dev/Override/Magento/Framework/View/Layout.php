@@ -12,6 +12,7 @@ class Layout extends \Magento\Framework\View\Layout
                 return '<!-- UiComponent('.$name.') -->'.$result.'<!-- /UiComponent('.$name.') -->';
             } elseif ($this->isBlock($name)) {
                 return '<!-- block('.$name.') -->'.$result.'<!-- /block('.$name.') -->';
+                // return $result;
             }
             return '<!-- container('.$name.') -->'.$result.'<!-- /container('.$name.') -->';
         }
