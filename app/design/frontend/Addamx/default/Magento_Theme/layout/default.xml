@@ -7,6 +7,12 @@
                 <argument name="logo_img_height" xsi:type="number">50</argument>
             </arguments>
         </referenceBlock>
+        <!-- head.additional 会被渲染到head, module-theme\view\base\templates\root.phtml -->
+        <block class="Magento\Framework\View\Element\Template" name="head.additional" />
+        <!-- requirejs插件和config文件的插入, 如果remove, 则无法使用require-config和mixin -->
+        <referenceBlock name="requirejs-config" />
+        <!-- 添加inline-translation的js文件 -->
+        <referenceBlock name="translate-config" />
     </body>
     <!-- 一个页面的layout只能有一个handle, 重复申明会覆盖 -->
     <!-- <update handle="custom_section"/> -->
