@@ -1,4 +1,3 @@
-loaderAjax ?
 
 x-mage, ko
 module-catalog/view/frontend/templates/product/compare/link.phtml

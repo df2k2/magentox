@@ -168,6 +168,7 @@ require(['jquery', 'mage/list'], function($) {
 
 
 <h2>Loader</h2>
+<pre>显示loading-mask, 不添加任何class</pre>
 <div><button id="showloader">show loader</button><button id="hideloader">hide loader</button></div>
 <script>
 require(['jquery', 'mage/loader'], function($) {
@@ -184,7 +185,19 @@ require(['jquery', 'mage/loader'], function($) {
 
 })
 </script>
+<pre>ajaxSend 让body多了'ajax-loading' class并设置aria-busy="true", 没有动画</pre>
+<div><button id="showajloader">show adjx loader</button><button id="hideajloader">hide ajax loader</button></div>
+<script>
+require(['jquery', 'mage/loader'], function($) {
+    $('#showajloader').click(function(){
+        $(document).trigger('ajaxSend');
+    })
+    $('#hideajloader').click(function(){
+        $(document).trigger('ajaxComplete');
+    })
 
+})
+</script>
 
 <hr>
 
