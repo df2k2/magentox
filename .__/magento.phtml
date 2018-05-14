@@ -1,0 +1,528 @@
+
+>>>root.phtml--
+    //tpl: module-theme\view\base\templates\root.phtml
+    //magento\framework\View\Result\Page.php
+<!doctype html>
+<html lang="en">
+<head>
+    >>> block(require.js)
+        module-theme/view/frontend/templates/page/js/require_js.phtml
+        <script>
+            var require = {
+                "baseUrl": "http://magentox.com/pub/static/version1526023898/frontend/Addamx/default/en_US"
+            };
+        </script>
+    <<< block(require.js)>
+
+    >>> script: requirejs/require.js
+        <script type="text/javascript" src="http://magentox.com/pub/static/version1526023898/frontend/Addamx/default/en_US/requirejs/require.js"></script>
+    <<< script: requirejs/require.js
+
+    >>> block(head.additional)
+        /// module-theme/view/frontend/templates/html/container.phtml
+    <<< block(head.additional)-->
+</head>
+
+<body data-container="body" data-mage-init='{"loaderAjax": {}, "loader": { "icon": "http://magentox.com/pub/static/version1526023898/frontend/Addamx/default/en_US/images/loader-2.gif"}}'
+    class="cms-home cms-index-index page-layout-1column">
+    
+    >>> container(root)
+        >>> container(after.body.start)
+            >>> block(googleoptimizer.experiment.script)
+            --block(googleoptimizer.experiment.script)-->
+
+            >>> block(head.polyfill)
+                // module-theme/view/frontend/templates/js/polyfill.phtml-->
+            <<< block(head.polyfill)-->
+
+            >>> block(head.components)
+                // module-catalog/view/base/templates/js/components.phtml
+
+                >>> block(bundle_checkout_page_head_components)
+                    // module-bundle/view/frontend/templates/js/components.phtml
+                <<< /block(bundle_checkout_page_head_components)
+
+                >>> block(sales_page_head_components)
+                    // module-sales/view/frontend/templates/js/components.phtml
+                <<< block(sales_page_head_components)
+
+                >>> block(checkout_page_head_components)
+                    // module-checkout/view/frontend/templates/js/components.phtml
+                <<< block(checkout_page_head_components)
+
+                >>> block(newsletter_head_components)
+                    // module-newsletter/view/frontend/templates/js/components.phtml
+                <<< block(newsletter_head_components)
+
+                >>> block(reports_page_head_components)
+                    // module-reports/view/frontend/templates/js/components.phtml
+                <<< block(reports_page_head_components)
+
+                >>> block(pagecache_page_head_components)
+                    // module-page-cache/view/frontend/templates/js/components.phtml
+                <<< block(pagecache_page_head_components)
+
+                >>> block(wishlist_page_head_components)
+                    // module-wishlist/view/frontend/templates/js/components.phtml
+                <<< block(wishlist_page_head_components)
+
+            <<< block(head.components)
+
+            >>> block(requirejs-config)
+                // class: Magento\RequireJs\Block\Html\Head\Config
+                // requirejs/mixins.js 和 requirejs-config.js 在head导入
+            <<< block(requirejs-config)
+
+            >>> block(translate-config)
+                // class: Magento\Translation\Block\Html\Head\Config
+                // 添加 inline-translation 的相关js的导入
+            <<< block(translate-config)
+
+            >>> block(translate)
+                // module-translation/view/base/templates/translate.phtml
+            <<< block(translate)
+
+            >>> block(js_cookies)
+                // class: Magento\Framework\View\Element\Js\Cookie
+                // module-theme/view/frontend/templates/js/cookie.phtml
+                <script type="text/x-magento-init">
+                {
+                    "*": {
+                        "mage/cookies": {
+                            "expires": null,
+                            "path": "/",
+                            "domain": ".magentox.com",
+                            "secure": false,
+                            "lifetime": "3600"
+                        }
+                    }
+                }
+                </script>
+            <<< block(js_cookies)
+
+            >>> block(global_notices)
+                // class: Magento\Theme\Block\Html\Notices
+                // module-theme/view/frontend/templates/html/notices.phtml
+                // noJs, nolocalStorage, demo的notice
+            <<< block(global_notices)
+
+            >>> block(cookie_notices)
+                // class: Magento\Cookie\Block\Html\Notices
+                // module-cookie/view/frontend/templates/html/notices.phtml
+                // need cookie的notice
+            <<< block(cookie_notices)
+
+            >>> block(google_analytics)
+                // class: Magento\GoogleAnalytics\Block\Ga
+                // module-google-analytics/view/frontend/templates/ga.phtml
+            <<< block(google_analytics)
+
+
+            >>> block(logger)
+                // Magento\Ui\Block\Logger module-ui/view/base/templates/logger.phtml
+                // sessionStorage记录error
+            <<< block(logger)
+
+            >>> block(paypal.express-in-context.component)
+                // TODO: 
+            <<< block(paypal.express-in-context.component)
+
+            >>> block(ddg.checkout.tag)
+                // vendor/dotmailer/dotmailer-magento2-extension/view/frontend/templates/email/tracking_code.phtml
+                // dotmailer的track page功能
+            <<< block(ddg.checkout.tag)
+
+        <<< container(after.body.start)
+
+
+        >>> container(page.wrapper)
+            <div class="page-wrapper">
+
+                >>> container(global.notices)
+                <<< container(global.notices)
+
+                >>> container(header.container)
+                    <header class="page-header">
+
+                    >>> container(header.panel.wrapper)
+                        <div class="panel wrapper">
+
+                        >>> container(header.panel)
+                            <div class="panel header">
+
+                            >>> block(top.links)
+                                <ul class="header links">
+
+                                >>> block(my-account-link)
+                                    // My Account dashboard 链接
+                                <<< block(my-account-link)
+
+                                >>> block(wish-list-link)
+                                    // Magento\Wishlist\Block\Link module-wishlist/view/frontend/templates/link.phtml
+                                <<< block(wish-list-link)
+
+                                >>> block(authorization-link)
+                                    // class: Magento\Customer\Block\Account\AuthorizationLink
+                                    // module-customer/view/frontend/templates/account/link/authorization.phtml
+                                    // Sign in 链接
+                                <<< block(authorization-link)
+
+                                >>> block(catalog.compare.link)
+                                    // module-catalog/view/frontend/templates/product/compare/link.phtml
+                                <<< block(catalog.compare.link)
+
+                                >>> block(header)
+                                    // class: Magento\Theme\Block\Html\Header
+                                    // module-theme/view/frontend/templates/html/header.phtml
+                                    // 登录后的welcome
+                                <<< block(header)
+
+                                >>> block(register-link)
+                                    // class: Magento\Customer\Block\Account\RegisterLink
+                                <<< block(register-link)
+                                
+                                </ul>
+                            <<< block(top.links)
+
+                            >>> block(skip_to_content)
+                                // module-theme/view/frontend/templates/html/skip.phtml
+                            <<< block(skip_to_content)
+
+                            >>> block(currency)
+                                // class: Magento\Directory\Block\Currency
+                                // module-directory/view/frontend/templates/currency.phtml
+                            <<< block(currency)
+
+                            >>> block(store_language)
+                                // class: Magento\Store\Block\Switcher\Interceptor
+                                // module-store/view/frontend/templates/switch/languages.phtml
+                            <<< block(store_language)
+
+                            </div>
+                        <<< container(header.panel)
+
+                        </div>
+                    <<< container(header.panel.wrapper)
+
+
+                    >>> container(header-wrapper)
+                        <div class="header content">
+
+                        >>> block(logo)
+                            // class: Magento\Theme\Block\Html\Header\Logo
+                            // module-theme/view/frontend/templates/html/header/logo.phtml
+                        <<< block(logo)
+
+                        >>> block(minicart)
+                            // class: Magento\Checkout\Block\Cart\Sidebar\Interceptor
+                            // module-checkout/view/frontend/templates/cart/minicart.phtml
+                        <<< block(minicart)
+
+                        >>> block(top.search)
+                            // module-search/view/frontend/templates/form.mini.phtml
+                        <<< block(top.search)
+
+                        </div>
+                    <<< container(header-wrapper)
+
+                    </header>
+                <<< container(header.container)
+
+
+
+                >>> container(page.top)
+
+                    >>> block(navigation.sections)
+                        // module-theme/view/frontend/templates/html/sections.phtml
+
+                        <div class="sections nav-sections">
+                            <div class="section-items nav-sections-items" data-mage-init='{"tabs":{"openedState":"active"}}'>
+
+                                >>> block(store.menu)
+                                    <div class="section-item-title nav-sections-item-title" data-role="collapsible">
+                                        <a class="nav-sections-item-switch" data-toggle="switch" href="#store.menu">Menu</a>
+                                    </div>
+                                    <div class="section-item-content nav-sections-item-content" id="store.menu" data-role="content">
+                                    // module-theme/view/frontend/templates/html/container.phtml
+
+                                    >>> block(catalog.topnav)
+                                        // class: Magento\Theme\Block\Html\Topmenu\Interceptor
+                                        // module-theme/view/frontend/templates/html/topmenu.phtml
+
+                                        <nav class="navigation" data-action="navigation">
+                                            <ul data-mage-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'>
+                                                ...
+                                            </ul>
+                                        </nav>
+                                    <<< block(catalog.topnav)
+                                
+                                    </div>
+                                <<< block(store.menu)
+
+                                
+                                >>> block(store.links)
+                                    // class: Magento\Framework\View\Element\Text
+
+                                    <div class="section-item-title nav-sections-item-title" data-role="collapsible">
+                                        <a class="nav-sections-item-switch" data-toggle="switch" href="#store.links">Account</a>
+                                    </div>
+
+                                    <div class="section-item-content nav-sections-item-content" id="store.links" data-role="content">
+                                        >>> Account links -->
+                                    </div>
+                                <<< block(store.links)
+
+
+                                >>> block(store.settings)
+                                    <div class="section-item-title nav-sections-item-title" data-role="collapsible">
+                                        <a class="nav-sections-item-switch" data-toggle="switch" href="#store.settings">Settings</a>
+                                    </div>
+                                    <div class="section-item-content nav-sections-item-content" id="store.settings" data-role="content">
+                                    // module-theme/view/frontend/templates/html/container.phtml
+
+                                        >>> block(store.settings.language)
+                                            // class: Magento\Store\Block\Switcher\Interceptor
+                                            // module-store/view/frontend/templates/switch/languages.phtml
+                                        <<< block(store.settings.language)
+
+                                        >>> block(store.settings.currency)
+                                            // class: Magento\Directory\Block\Currency
+                                            // module-directory/view/frontend/templates/currency.phtml
+                                        <<< block(store.settings.currency)
+                                    </div>
+                                <<< block(store.settings)
+
+                            </div>
+                        </div>
+                    <<< block(navigation.sections)
+
+
+                    >>> container(top.container)
+                        <div class="top-container">
+                            >>> block(bml.center.logo)
+                                // class: Magento\Paypal\Block\Bml\Banners
+                            <<< block(bml.center.logo)
+                        </div>
+                    <<< container(top.container)
+
+                    >>> block(breadcrumbs)
+                        // Magento\Theme\Block\Html\Breadcrumbs
+                        // module-theme/view/frontend/templates/html/breadcrumbs.phtml
+                    <<< block(breadcrumbs)
+
+                <<< container(page.top)
+
+
+                >>> container(main.content)
+                    <main id="maincontent" class="page-main">
+
+                    >>> block(skip_to_content.target)
+                        // module-theme/view/frontend/templates/html/skiptarget.phtml
+                    <<< block(skip_to_content.target)
+
+                    >>> container(columns.top)
+
+                        >>> block(page.main.title)
+                            //Magento\Theme\Block\Html\Title module-theme/view/frontend/templates/html/title.phtml
+                            <div class="page-title-wrapper"></div>
+                        <<< block(page.main.title)
+
+                        >>> container(page.messages)
+
+                            >>> block(ajax.message.placeholder)
+                                // module-theme/view/frontend/templates/html/messages.phtml
+                            <<< block(ajax.message.placeholder)
+
+                            >>> block(messages)
+                                // class: Magento\Framework\View\Element\Messages
+                                // module-theme/view/frontend/templates/messages.phtml
+                            <<< block(messages)
+
+                        <<< container(page.messages)
+
+                    <<< container(columns.top)
+
+                    
+                    >>> container(columns)
+                        <div class="columns">
+
+                        >>> container(main)
+                            <div class="column main">
+
+                                >>> container(content.top)
+                                <<< container(content.top)
+
+
+                                >>> container(content)
+
+                                    >>> block(formkey)
+                                        // class: Magento\Framework\View\Element\FormKey
+                                        <input name="form_key" type="hidden" value="t3pkv1OIGk3Pibjc" />
+                                    <<< block(formkey)
+
+                                    >>> block(authentication-popup)
+                                        // class: Magento\Customer\Block\Account\AuthenticationPopup
+                                        // module-customer/view/frontend/templates/account/authentication-popup.phtml
+                                    <<< block(authentication-popup)
+
+                                    >>> block(customer.section.config)
+                                        // class: Magento\Customer\Block\SectionConfig
+                                        // module-customer/view/frontend/templates/js/section-config.phtml
+                                    <<< block(customer.section.config)
+
+                                    >>> block(customer.customer.data)
+                                        // class: Magento\Customer\Block\CustomerData
+                                        // module-customer/view/frontend/templates/js/customer-data.phtml
+                                    <<< block(customer.customer.data)
+
+                                    >>> block(customer.data.invalidation.rules)
+                                        // Magento\Customer\Block\CustomerScopeData
+                                        // module-customer/view/frontend/templates/js/customer-data/invalidation-rules.phtml
+                                    <<< block(customer.data.invalidation.rules)
+
+                                    >>> block(pageCache)
+                                        // class: Magento\PageCache\Block\Javascript
+                                        // module-page-cache/view/frontend/templates/javascript.phtml
+                                        <script type="text/x-magento-init">
+                                            {
+                                                "body": {
+                                                    "pageCache": {"url":"http:\/\/magentox.com\/page_cache\/block\/render\/?debug=","handles":["default","cms_index_index","cms_page_view","cms_index_index_id_home"],"originalRequest":{"route":"cms","controller":"index","action":"index","uri":"\/?debug"},"versionCookieName":"private_content_version"}        }
+                                            }
+                                        </script>
+                                    <<< block(pageCache)
+
+                                    >>> block(cms_page)
+                                    <<< block(cms_page)
+
+                                <<< container(content)
+
+
+                                >>> container(content.aside)
+                                <<< container(content.aside)
+
+
+                                >>> container(content.bottom)
+                                <<< container(content.bottom)
+
+                            </div>
+                        <<< container(main)
+
+                        </div>
+                    <<< container(columns)
+
+                    </main>
+                <<< container(main.content)
+
+
+                >>> container(page.bottom.container)
+                    <div class="page-bottom">
+                        >>> container(page.bottom)
+                        <<< container(page.bottom)
+                    </div>
+                <<< container(page.bottom.container)
+
+
+                >>> container(footer-container)
+                    <footer class="page-footer">
+
+                        >>> container(footer)
+                            <div class="footer content">
+
+                                >>> block(form.subscribe)
+                                    // class: Magento\Newsletter\Block\Subscribe
+                                    // module-newsletter/view/frontend/templates/subscribe.phtml
+                                <<< block(form.subscribe)
+
+                                >>> block(store_switcher)
+                                    // class: Magento\Store\Block\Switcher\Interceptor
+                                    // module-store/view/frontend/templates/switch/stores.phtml
+                                <<< block(store_switcher)
+
+                                >>> container(cms_footer_links_container)
+                                <<< container(cms_footer_links_container)
+
+
+                                >>> block(footer_links)
+                                    // class: Magento\Framework\View\Element\Html\Links
+
+                                    <ul class="footer links">
+                                        >>> block(privacy-policy-link)
+                                            // class: Magento\Framework\View\Element\Html\Link\Current
+                                        <<< block(privacy-policy-link)
+
+                                        >>> block(search-term-popular-link)
+                                            // class: Magento\Framework\View\Element\Html\Link\Current
+                                        <<< block(search-term-popular-link)
+                                        
+                                        >>> block(sales-guest-form-link)
+                                            // class: Magento\Sales\Block\Guest\Link
+                                        <<< block(sales-guest-form-link)
+
+                                        >>> block(catalog-search-advanced-link)
+                                            // class: Magento\Framework\View\Element\Html\Link\Current
+                                        <<< block(catalog-search-advanced-link)
+
+                                        >>> block(contact-us-link)
+                                            // class: Magento\Framework\View\Element\Html\Link\Current
+                                        <<< block(contact-us-link)
+                                    </ul>
+
+                                <<< block(footer_links)
+
+
+                                >>> block(copyright)
+                                    // class: Magento\Theme\Block\Html\Footer
+                                    // module-theme/view/frontend/templates/html/copyright.phtml
+                                <<< block(copyright)
+
+                                >>> block(report.bugs)
+                                    // module-theme/view/frontend/templates/html/bugreport.phtml
+                                <<< block(report.bugs)
+
+                            </div>
+                        <<< container(footer)
+
+                    </footer>
+                <<< container(footer-container)
+
+
+                >>> container(before.body.end)
+
+                    >>> block(frontend-storage-manager)
+                        // class: Magento\Catalog\Block\FrontendStorageManager
+                        // module-catalog/view/frontend/templates/frontend_storage_manager.phtml
+                        <script type="text/x-magento-init">
+                        {
+                            "*": {
+                                "Magento_Ui/js/core/app": {
+                                    "components": {
+                                        "storage-manager": {...}
+                                    }
+                                }
+                            }
+                        }
+                        </script>
+                    <<< block(frontend-storage-manager)
+
+                    >>> block(absolute_footer)
+                        // class: Magento\Theme\Block\Html\Footer
+                        // module-theme/view/frontend/templates/html/absolute_footer.phtml
+                    <<< block(absolute_footer)
+
+                    >>> block(emailCapture)
+                        // vendor/dotmailer/dotmailer-magento2-extension/view/frontend/templates/email/email_capture_newsletter.phtml
+                    <<< block(emailCapture)
+
+                <<< container(before.body.end)
+
+
+            </div>
+        <<< container(page.wrapper)
+
+
+    <<< container(root)
+
+    
+</body>
+</html>
+<<< root.phtml->
