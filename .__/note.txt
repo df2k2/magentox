@@ -1,0 +1,60 @@
+loaderAjax ?
+
+x-mage, ko
+module-catalog/view/frontend/templates/product/compare/link.phtml
+module-theme/view/frontend/templates/html/header.phtml
+
+block(minicart)
+block(top.search)
+block(navigation.sections)
+block(breadcrumbs)
+block(messages)
+
+block(customer.section.config)
+block(customer.customer.data)
+block(customer.data.invalidation.rules)
+
+block(pageCache)
+
+
+$block->getTarget()
+$block->getLabel();
+<arguments>
+	<argument name="target" xsi:type="string">contentarea</argument>
+	<argument name="label" translate="true" xsi:type="string">Skip to Content</argument>
+</arguments>
+
+
+<block class="Magento\Framework\View\Element\Text" name="store.links" group="navigation-sections">
+	<arguments>
+		<argument name="title" translate="true" xsi:type="string">Account</argument>
+		<argument name="use_force" xsi:type="boolean">true</argument>
+		<argument name="text" xsi:type="string"><![CDATA[<!-- Account links -->]]></argument>
+	</arguments>
+</block>
+
+
+$this->getData('text');
+
+
+--------------------
+$this->messageManager->addSuccess(__('The static files cache has been cleaned.'));
+
+
+/** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
+$resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
+return $resultRedirect->setPath('adminhtml/*');
+
+
+
+For example, suppose you change the price of an item from $8.99 to $6.99. Magento must reindex the price change to display it on your storefront.
+
+Without indexing, Magento would have to calculate the price of every product on the fly—taking into account shopping cart price rules, bundle pricing, discounts, tier pricing, and so on. Loading the price for a product would take a long time, possibly resulting in cart abandonment.
+
+
+
+
+
+$block->getViewFileUrl('/')
+
+
