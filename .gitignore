@@ -63,5 +63,4 @@ atlassian*
 /bin
 /pub
 /dev
-/.blank
-/.luma
+/._theme
