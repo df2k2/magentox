@@ -21,7 +21,18 @@ require(['Magento_Ui/js/lib/core/storage/local'], function(storage){
 
 
 <div id="micomponent" data-bind="scope: 'miComponent'" >
-<h2 data-bind="text: miComponent.title"></h2>
+
+    <h2 data-bind="text: data.title"></h2>
+
+    <ul>
+        <li data-bind="foreach: data.list, as: 'item'"><span data-bind="text: item.text"></span></li>
+    </ul>
+
+    <div>
+        <button data-bind="click:testLog">testLog</button>
+    </div>
+
+
 </div>
 <script type="text/x-magento-init">
 {
