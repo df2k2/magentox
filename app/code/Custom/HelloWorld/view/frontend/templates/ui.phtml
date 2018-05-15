@@ -1,0 +1,32 @@
+<script>
+/*
+console打印等级
+LEVELS = {
+    NONE: 0,
+    ERROR: 1,
+    WARN: 2,
+    INFO: 3,
+    DEBUG: 4,
+    ALL: 5
+};
+//module-ui\view\base\web\js\lib\logger\console-logger.js 会调用CONSOLE_LOGGER的值决定可以打印的等级.
+//举例, module-ui\view\base\web\js\core\renderer\layout.js 就使用了console-logger的工具函数来打印componnent的调试信息.
+*/
+require(['Magento_Ui/js/lib/core/storage/local'], function(storage){
+    // storage.set('CONSOLE_LOGGER', 5);
+})
+</script>
+
+
+
+
+<div id="micomponent" data-bind="scope: 'miComponent'" >
+<h2 data-bind="text: miComponent.title"></h2>
+</div>
+<script type="text/x-magento-init">
+{
+    "#micomponent": {
+        "Magento_Ui/js/core/app": <?=/* @escapeNotVerified */$block->getJsLayout()?>
+    }
+}
+</script>

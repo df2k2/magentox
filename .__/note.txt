@@ -36,6 +36,23 @@ $block->getLabel();
 $this->getData('text');
 
 
+<arguments>
+	<argument name="jsLayout" xsi:type="array">
+		<item name="components" xsi:type="array">
+			<item name="compareProducts" xsi:type="array">
+				<item name="component" xsi:type="string">Magento_Catalog/js/view/compare-products</item>
+			</item>
+		</item>
+	</argument>
+</arguments>
+<script type="text/x-magento-init">
+{"[data-role=compare-products-link]": {"Magento_Ui/js/core/app": <?= /* @escapeNotVerified */ $block->getJsLayout() ?>}}
+</script>
+<script type="text/x-magento-init">
+{"[data-role=compare-products-link]": {"Magento_Ui/js/core/app": {"components":{"compareProducts":{"component":"Magento_Catalog\/js\/view\/compare-products"}}}}}
+</script>
+
+
 --------------------
 $this->messageManager->addSuccess(__('The static files cache has been cleaned.'));
 
@@ -56,4 +73,19 @@ Without indexing, Magento would have to calculate the price of every product on 
 
 $block->getViewFileUrl('/')
 
+----------------------
+admin:
+widgets
+category-anchor
 
+code:
+model
+add new post
+webapi
+
+
+
+
+
+----------------
+chrome-vscode debug
