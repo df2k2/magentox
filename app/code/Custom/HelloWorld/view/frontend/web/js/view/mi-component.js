@@ -23,7 +23,11 @@ define([
               ]
             });
           }
-          this.data = customerData.get('mi-component-data')();
+          this.data = customerData
+            .get("mi-component-data")
+            .extend({
+              disposableCustomerData: "mi-component-data"
+            });
 
           return this;
       },
