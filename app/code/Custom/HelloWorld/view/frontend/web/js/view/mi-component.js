@@ -2,7 +2,8 @@ define([
   'uiComponent',  //module-ui\view\base\web\js\lib\core\collection.js
   'jquery',
   'Magento_Customer/js/customer-data',
-  'underscore'
+  'underscore',
+  'ko'
   // 'mage/decorate'
 ], function (Component, $, customerData, _) {
   'use strict';
