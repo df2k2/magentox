@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="after.body.start">
+            <block class="Custom\Cms\Block\Cms\Page"  name="cms.page.pagecss" template="Custom_Cms::cms/after_body_start.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="before.body.end">
+            <block class="Custom\Cms\Block\Cms\Page"  name="cms.page.pagejs" template="Custom_Cms::cms/before_body_end.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

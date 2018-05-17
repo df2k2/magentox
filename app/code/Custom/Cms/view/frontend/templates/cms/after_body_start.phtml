@@ -1,0 +1,8 @@
+<?php
+    $page = $this->getPage();
+?>
+<?php if($pageCss = trim($page->getPageCss())):?>
+<style>
+    <?php echo $pageCss ;?>
+</style>
+<?php endif;?>

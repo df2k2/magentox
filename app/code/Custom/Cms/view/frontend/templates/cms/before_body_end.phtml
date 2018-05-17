@@ -1,0 +1,8 @@
+<?php
+    $page = $this->getPage();
+?>
+<?php if($js = $page->getPageJs()):?>
+    <script>
+        <?php echo $js; ?>
+    </script>
+<?php endif;?>     

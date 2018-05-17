@@ -1,0 +1,15 @@
+{
+  "name": "Custom/module-cms",
+  "description": "Custom CMS Fields Module",
+  "license": "proprietary",
+  "minimum-stability": "dev",
+  "require": {},
+  "autoload": {
+      "psr-4": {
+          "Custom\\Cms\\": ""
+      },
+      "files": [
+          "registration.php"
+      ]
+  }
+}
