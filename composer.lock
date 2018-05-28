@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2289f1e31354c206eb04c59ee7d0aad5",
+    "content-hash": "a6368a9f39b1cd8d54e7572bfb47dd3d",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -557,6 +557,52 @@
                 }
             ],
             "description": "dotmailer integration for magento 2"
+        },
+        {
+            "name": "ewave/legobasetheme",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://stash.ewave.com/scm/lego/lego-base-theme.git",
+                "reference": "72309df7bbbc5f7c299f58310a9bcee3fe89da47"
+            },
+            "require": {
+                "php": "~5.6.5|7.0.2|7.0.4|~7.0.6"
+            },
+            "type": "magento2-theme",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "Lego Base theme",
+            "time": "2018-05-10T13:02:25+00:00"
+        },
+        {
+            "name": "ewave/legodefaulttheme",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://stash.ewave.com/scm/lego/lego-default-theme.git",
+                "reference": "0955c3ce827e4c28a4e7f9ab6b69bee4bd294e65"
+            },
+            "require": {
+                "ewave/legobasetheme": "*"
+            },
+            "type": "magento2-theme",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "Lego Default theme",
+            "time": "2018-02-02T13:12:26+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -12415,6 +12461,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "composer/composer": 15,
+        "ewave/legobasetheme": 20,
+        "ewave/legodefaulttheme": 20,
         "phpmd/phpmd": 0
     },
     "prefer-stable": false,

@@ -1,0 +1,93 @@
+// large button
+.lib-button-l();
+
+// small button
+.lib-button-s();
+
+// button as an icon
+.example-button-10 {
+    .lib-button(
+        @_button-margin: 3px,
+        @_button-icon-use: true,
+        @_button-font-content: @icon-cart,
+        @_button-icon-font-text-hide: true
+    );
+    .lib-button-reset();
+}
+
+// button with icon
+.example-button-11 {
+    .lib-button(
+        @_button-margin: 3px,
+        @_button-icon-use: true,
+        @_button-font-content: @icon-cart,
+        @_button-icon-font-position: before
+    );
+}
+
+// button with fixed with & margin
+.example-button-13 {
+    .lib-button(@_button-width: 100px, @_button-margin: 3px);
+}
+
+// primary button
+.action.primary {
+    .lib-button-primary();
+}
+
+// Button with gradient background
+.example-button-7 {
+    .lib-button(
+        @_button-margin: 3px,
+        @_button-padding: @button__padding,
+        @_button-gradient-color-start: #1979c3,
+        @_button-gradient-color-end: #006bb4,
+        @_button-color: #fff,
+        @_button-gradient-color-start-hover: #006bb4,
+        @_button-gradient-color-end-hover: #1979c3,
+        @_button-color-hover: #fff,
+        @_button-gradient-color-start-active: #006bb4,
+        @_button-gradient-color-end-active: #006bb4,
+        @_button-color-active: #fff,
+        @_button-gradient: true,
+        @_button-gradient-direction: vertical,
+        @_button-border: @button-primary__border,
+        @_button-border-hover: @button-primary__hover__border,
+        @_button-border-active: @button-primary__active__border
+    );
+    border-radius: 3px;
+    &:active {
+        box-shadow: inset 0 3px 1px rgba(0,0,0,.29);
+    }
+}
+
+// Button to link
+.buttontolink {
+    .lib-button-as-link();
+    font-weight: normal;
+    &:active {
+        box-shadow: none;
+    }
+}
+
+// link to Button
+.linktobutton {
+    .lib-link-as-button();
+    .lib-button();
+    margin: 3px;
+    border-radius: 3px;
+    font-weight: bold;
+    &:active {
+        box-shadow: inset 0 3px 1px rgba(0,0,0,.29);
+    }
+}
+
+// button reset
+.lib-button-reset();
+
+
+// secondary button
+.action.secondary {
+    .lib-button-primary();
+    .lib-button-revert-secondary-color();
+}

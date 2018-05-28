@@ -1,0 +1,246 @@
+//
+//  tooltip
+//  ---------------------------------------------
+.lib-tooltip(top/bottom/left/right);
+
+//
+//  table
+//  ---------------------------------------------
+.example-table {
+    .lib-table();
+    .lib-table-resize(
+        @_td-padding-top: 15px,
+        @_td-padding-right: 25px,
+        @_td-padding-bottom: 5px,
+        @_td-padding-left: 0,
+        @_th-padding-top: 15px,
+        @_th-padding-right: 25px,
+        @_th-padding-bottom: 10px,
+        @_th-padding-left: 0
+    );
+    .lib-table-background-color(
+        @_table-background-color: #fff,
+        @_table-head-background-color: #ccf,
+        @_table-foot-background-color: #cff,
+        @_table-td-background-color: #fcc,
+        @_table-body-th-background-color: #ffc
+    );
+    .lib-table-bordered();
+    .lib-table-bordered(
+        @_table_type: horizontal
+    );
+    .lib-table-bordered(
+        @_table_type: vertical
+    );
+    .lib-table-bordered(
+        @_table_type: light //仅thread 有 border-bottom
+    );
+    .lib-table-bordered(
+        @_table_type: clear //clear border
+    );
+    .lib-table-striped(
+        @_stripped-background-color: #ffc,
+        @_stripped-color: #000,
+        @_stripped-direction: horizontal,   //or vertical
+        @_stripped-highlight: even  //or odd
+    );
+    .lib-table-hover();
+}
+
+@media only screen and (max-width: @screen__m) {
+    .example-table-14 {
+        .lib-table-overflow();  //添加滚动条
+    }
+}
+@media only screen and (max-width: @screen__m) {
+    .example-table-2 {
+        .lib-table-responsive(  //形成竖行表格, tbody每个td/th需要有data-th属性, tfoot的td也是
+            @_table-background-color-responsive: #cff,
+            @_table-th-background-color-responsive: #ffc,
+            @_reset-table-striped: true,
+            @_reset-table-hover: true
+        );
+    }
+}
+
+//
+//  Tabs & Accordion
+//  ---------------------------------------------
+//  Tabs
+.lib-data-tabs();
+.lib-data-tabs(
+    @_tab-content-border-top-status: true//with border-top only
+);
+//  Accordion
+.lib-data-accordion();
+
+@media only screen and (max-width: @screen__m) {
+    .example-sections-4 {
+        .lib-data-accordion();
+    }
+}
+
+//.lib-data-tabs, .lib-data-accordion执行前先执行以下base动作;
+.lib-data-tabs__base();
+.lib-data-accordion__base();
+
+
+//
+//  rating
+//  ---------------------------------------------
+.lib-rating-vote(); //有hove
+.lib-rating-summary();  //无hover
+
+
+//
+//  Popups
+//  ---------------------------------------------
+.lib-popup();
+.lib-window-overlay();
+
+
+//
+//  Pagination
+//  ---------------------------------------------
+.lib-pager();
+
+
+//
+//  Message
+//  ---------------------------------------------
+.lib-message(info);
+.lib-message(warning);
+.lib-message(error);
+.lib-message(success);
+.lib-message(notice);
+.lib-message(notice);
+.lib-message-icon-lateral(error, right);
+.lib-message-icon-lateral(success, left);
+
+
+//
+//  loader
+//  ---------------------------------------------
+.lib-loader();  //whole page
+.lib-loading(); //specify block
+
+
+//
+//  icons
+//  ---------------------------------------------
+// blank-theme-icons.png -- sprite
+.example-icon-1 {
+    .lib-icon-image(@_icon-image: '@{baseDir}images/blank-theme-icons.png');
+}
+.example-icon-2 {
+    .lib-icon-image(
+        @_icon-image: '@{baseDir}images/blank-theme-icons.png',
+        @_icon-image-position-x: -26px,
+        @_icon-image-position-y: 0,
+        @_icon-image-position: after    //::before, ::after or current ele
+   );
+}
+.example-icon-3 {
+    .lib-icon-image(@_icon-image: '@{baseDir}images/blank-theme-icons.png');
+    .lib-icon-sprite-position(4, 0);    // use in a regular grid.
+    .lib-icon-image-size(30px, 30px);
+}
+//  font icon
+.example-icon-12 {
+    .lib-icon-font(
+        @icon-calendar,
+        @_icon-font-size: 28px
+   );
+}
+.example-icon-13 {
+    .lib-icon-font(@icon-calendar);
+    .lib-icon-font-size(
+        @_icon-font-size: 26px
+   );
+   .lib-icon-text-hide();   //hide icon text
+}
+
+
+//
+//  Dropdown
+//  ---------------------------------------------
+//  需要: `.action.toggle`, 最好用<button>
+/*
+<div class="actions dropdown example-dropdown-1">
+<button class="action toggle" data-mage-init='{"dropdown":{}}' data-toggle="dropdown" aria-haspopup="true">
+    <span>button + dropdown</span>
+</button>
+<ul class="dropdown">
+    ....
+</ul>
+</div>
+*/
+.example-dropdown-1 {
+    .lib-dropdown();
+}
+.example-dropdown-3 {
+    .lib-dropdown(
+        @_dropdown-toggle-icon-content: @icon-expand,
+        @_dropdown-toggle-active-icon-content: @icon-collapse,
+        @_icon-font-line-height: 1,
+        @_icon-font-position: before,
+        @_icon-font-color: #f00,
+        @_icon-font-color-hover: #f00
+    );
+}
+.example-dropdown-6 {
+    .lib-dropdown-split(
+        @_dropdown-split-button-border-radius-fix: true //fix button右侧的radius
+    );
+}
+.example-dropdown-11 {
+    .lib-dropdown-split(
+        @_dropdown-split-toggle-position: left, //默认right
+        @_dropdown-split-button-border-radius-fix: true,
+        @_dropdown-split-toggle-icon-content: @icon-expand,
+        @_dropdown-split-toggle-active-icon-content: @icon-collapse,
+        @_icon-font-position: before,   //默认 after
+        @_icon-font-color: #f00,
+        @_icon-font-color-hover: #f00
+    );
+}
+
+
+//
+//  breadcrumbs
+//  ---------------------------------------------
+.example-breadcrumbs-1 {
+    .lib-breadcrumbs();
+}
+
+
+//
+//  Actions toolbar
+//  ---------------------------------------------
+.actions-toolbar {
+    .lib-actions-toolbar();
+}
+/*
+  <div class="actions-toolbar">
+      <div class="primary">
+          <button type="submit" class="action submit" title="Submit"><span>Submit</span></button>
+      </div>
+      <div class="secondary">
+          <a class="action back" href="#"><span>Back</span></a>
+      </div>
+  </div>
+*/
+// align, reverse
+.example-actions-toolbar-5 {
+    .lib-actions-toolbar(
+        @_actions-toolbar-actions-position: center,
+        @_actions-toolbar-actions-reverse: true
+    );
+}
+
+// media, clear-float
+@media only screen and (max-width: @screen__m) {
+    .example-actions-toolbar-12 {
+       .lib-actions-toolbar-clear-floats();
+    }
+}

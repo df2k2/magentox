@@ -1,0 +1,104 @@
+
+
+/*
+ * Media
+ */
+
+// lib\web\css\source\lib\variables\_responsive.less
+@screen__xxs: 320px;
+@screen__xs: 480px;
+@screen__s: 640px;
+@screen__m: 768px;
+@screen__l: 1024px;
+@screen__xl: 1440px;
+
+//
+//  Common
+//  ---------------------------------------------
+
+& when (@media-common = true) {
+    
+}
+
+//
+//  Mobile below
+//  ---------------------------------------------
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    //max: 767px
+}
+
+//
+//  Tablet above 
+//  ---------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    //min: 768px
+}
+
+//
+//  Desktop above
+//  ---------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+    //min: 1024px
+}
+
+//
+//  Large Desktop above
+//  ---------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__xl) {
+    //min: 1440px
+}
+
+// lib\web\css\source\lib\_responsive.less
+& when (@media-target = 'mobile'), (@media-target = 'all') {
+
+    @media only screen and (max-width: (320px - 1)) {
+        .media-width('max', 320px);
+    }
+
+    @media only screen and (max-width: (480px - 1)) {
+        .media-width('max', 480px);
+    }
+
+    @media only screen and (max-width: (640px - 1)) {
+        .media-width('max', 640px);
+    }
+
+    @media only screen and (max-width: (768px - 1)) {
+        .media-width('max', 768px);
+    }
+
+    @media only screen and (max-width: 768px) {
+        .media-width('max', (768px + 1));
+    }
+
+    @media all and (min-width: 640px) {
+        .media-width('min', 640px);
+    }
+
+}
+
+& when (@media-target = 'desktop'), (@media-target = 'all') {
+
+    @media all and (min-width: 768px),
+    print {
+        .media-width('min', 768px);
+    }
+
+    @media all and (min-width: (768px + 1)),
+    print {
+        .media-width('min', (768px + 1));
+    }
+
+    @media all and (min-width: 1024px),
+    print {
+        .media-width('min', 1024px);
+    }
+
+    @media all and (min-width: 1440px),
+    print {
+        .media-width('min', 1440px);
+    }
+}

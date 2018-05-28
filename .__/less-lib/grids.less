@@ -1,0 +1,86 @@
+//
+//  Page Layout
+//  ---------------------------------------------
+.lib-layout-column(count, order, width);
+.layout-example-3 {
+    .column.main {
+        .lib-layout-column(3, 2, 60%);
+    }
+    .column.left {
+        .lib-layout-column(3, 1, 20%);
+    }
+    .column.right {
+        .lib-layout-column(3, 3, 20%);
+    }
+}
+
+
+//
+//  Grid
+//  ---------------------------------------------
+
+@grid-row-column__mobile__gutter: 10px; // mobile left and right spacings
+@grid-row-column__tablet__gutter: 20px; // tablet left and right spacings
+@grid-row-column__desktop__gutter: 40px; // desktop left and right spacings
+@grid-row-column__xlarge__gutter: 60px; // large desktop left and right spacings
+
+@grid-row__max-width: 1280px;
+@grid-row__total-columns: 12;   //12, 16
+
+@grid-row-include-xl-html-grid-classes: false;  //默认'.xlarge-...'的功能是关闭的
+
+//
+// 生效范围: (可通过responsive的variable修改)
+//  ---------------------------------------------
+@small-x: min-0px;
+@medium-x: min-768px;
+@large-x: min-1024px;
+@xlarge-x: min-1440;
+//small可覆盖所有范围, 所以需要全生效就使用'.small-...'
+
+
+// offset:
+// large-9 large-offset-1
+
+// Collapse/uncollapse (是否移除gutter, 即column之间的总padding)
+    // 移除: grid-row -smarll-collapse    //移除gutter
+    // 添加: grid-row -small-uncollapse -medium-uncollapse -large-uncollapse
+        //添加gutter(根据@grid-row-column__${screen}__gutter), 未添加前也有gutter默认是10px(总), 
+        //-small-uncollapse(10px)
+        //-medium-uncollapse(20px)
+        //-large-uncollapse(40px)
+
+// centered/uncentered
+    // small-6 column -small-centered -large-uncentered
+
+// push-x/pull-x  重新定位(position:absolute)
+    // small-10 small-push-2 column
+    // small-2 small-pull-10 column
+
+
+//
+// 其他注意
+//  ---------------------------------------------
+// 1.
+// 注意父子grid-row的gutter, grid-row作为子grid-row时, 会有以下样式默认消除gutter(左右10px), width(100%)和max-width, 但是如果父有`-medium-uncollapse, -large-uncollapse`等重定义gutter, 则应该给所有子grid-row也添加对应的`-medium-uncollapse, -large-uncollapse`, 否则gutter还有剩余;
+// 默认给子grid-row移除的gutter(10px)
+.grid-row .grid-row {
+    margin-left: -5px;
+    margin-right: -5px;
+    max-width: none;
+    width: auto;
+}
+// 给子grid-row 也加uncollapse后
+.grid-row .grid-row.-large-uncollapse {
+    margin-left: -20px;
+    margin-right: -20px;
+}
+
+
+// 2.
+// 最后一个column默认float:right
+.column+.column:last-child {
+    float: right;
+}
+
+

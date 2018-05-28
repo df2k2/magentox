@@ -30,7 +30,8 @@
         "magento/module-swatches-sample-data": "100.2.*",
         "magento/sample-data-media": "100.2.*",
         "magento/module-offline-shipping-sample-data": "100.2.*",
-        "ewave/lego-base-theme": "dev-master"
+        "ewave/legobasetheme": "dev-master",
+        "ewave/legodefaulttheme": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "~6.2.0",
@@ -79,6 +80,14 @@
         {
             "type": "vcs",
             "url": "https://stash.ewave.com/scm/lego/lego-base-theme.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://stash.ewave.com/scm/lego/ewave_utilities.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://stash.ewave.com/scm/lego/lego-default-theme.git"
         }
     ],
     "extra": {

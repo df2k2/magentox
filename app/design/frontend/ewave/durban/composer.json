@@ -1,0 +1,15 @@
+{
+  "name": "ewave/durban",
+  "description": "N/A",
+  "require": {
+    "php": "~5.5.0|~5.6.0|~7.0.0|~7.1.0",
+    "ewave/legobasetheme": "dev-master",
+    "magento/framework": "100.0.*"
+  },
+  "type": "magento2-theme",
+  "version": "0.1",
+  "license": ["OSL-3.0", "AFL-3.0"],
+  "autoload": {
+    "files": ["registration.php"]
+  }
+}

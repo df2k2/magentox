@@ -1,0 +1,90 @@
+//  Weights
+@font-weight__light: 300;
+@font-weight__regular: 400;
+@font-weight__heavier: 500;
+@font-weight__semibold: 600;
+@font-weight__bold: 700;
+//  Styles
+@font-style__base: normal;
+@font-style__emphasis: italic;
+//  Line heights
+@line-height__base: 1.428571429;
+@line-height__computed: floor(@font-size__base * @line-height__base);//20px;
+@line-height__xl: 1.7;
+@line-height__l: 1.5;
+@line-height__s: 1.33;
+@border-width__base: 1px;
+// link
+@link__color: @color-blue1;
+@link__text-decoration: none;
+@link__visited__color: @link__color;
+@link__visited__text-decoration: none;
+@link__hover__color: @color-blue2;
+@link__hover__text-decoration: underline;
+@link__active__color: @active__color;
+@link__active__text-decoration: underline;
+// focus
+@focus__color: @color-sky-blue1;
+@focus__box-shadow: 0 0 3px 1px @focus__color;
+
+
+//字体设置
+@font-family-name__base: 'new-font';
+@font-family__base: @font-family-name__base, @font-family__sans-serif/@font-family__serif/@font-family__monospace;
+
+
+
+
+
+
+//font-face (eot, eot?#iefix, woff2, woff, truetype, svg)
+//导入 icons-blank-theme
+.lib-font-face(
+    @family-name: @icons__font-name,
+    @font-path: @icons__font-path,
+    @font-weight: normal,
+    @font-style: normal
+);
+
+
+.lib-font-size(10); //font-size: 1rem(10px);
+//.lib-font-size0->.lib-font-size-value中, 是否使用@font-size-unit-ratio(px->rem)替代value值; 如果false, 则直接输出value
+@font-size-unit-convert: true;
+
+
+.lib-line-height(10);   //line-height: 1rem(10px);
+.lib-line-height(140%);   //line-height: 140%;
+
+//  换行
+.lib-wrap-words();  //break-word, .lib-hyphens()
+.lib-text-overflow();   //no-wrap, ellipsis
+.lib-hyphens(); //hyphens(mobile, ie 10+)
+
+.lib-text-hide();   //no text, background, border, shadow
+
+
+.lib-typography();  //@font-size__base, @text__color, @font-family__base, @font-weight__regular, @line-height__base, @font-style__base
+
+
+//  list
+.lib-list-reset-styles();    //reset list  (padding, margin, liststyle)
+.lib-list-inline();     //.lib-list-reset-styles(), inline-block, vertical-align: top
+
+//  link(lvha, color & decoration)
+.lib-link(
+    @link__color,
+    @link__text-decoration,
+    @link__visited__color,
+    @link__visited__text-decoration,
+    @link__hover__color,
+    @link__hover__text-decoration,
+    @link__active__color,
+    @link__active__text-decoration
+);
+
+
+// class === tag
+// className重置与tag相同属性
+a, .alink {}
+small, .small {}
+

@@ -1,0 +1,94 @@
+
+//
+//  Form
+//  ---------------------------------------------
+//  Fieldset - 单列
+.example-form-1-fieldset {
+    .lib-form-fieldset();
+    .lib-form-hasrequired(bottom);
+    > .field {
+        .lib-form-field();
+    }
+}
+//  Fieldset - 双列
+.example-form-2-fieldset {
+    .lib-form-fieldset();
+    > .field {
+        .lib-form-field(
+            @_type: block,
+            @_column: true
+        );
+    }
+}
+//  field > input
+input[type="text"],
+input[type="password"],
+input[type="url"],
+input[type="tel"],
+input[type="search"],
+input[type="number"],
+input[type="datetime"],
+input[type="email"] {
+    .lib-form-element-input(@_type: input-text);
+    margin-bottom: 20px;
+}
+select[multiple="multiple"] {
+    .lib-css(height, auto);
+    margin-bottom: 20px;
+}
+textarea {
+    .lib-form-element-input(@_type: textarea);
+    .lib-form-element-textarea-resize();
+}
+input[type='checkbox'] {    //  ewave lib
+    .lib-form-element-checkbox();
+}
+input[type='radio'] {    //  ewave lib
+    .lib-form-element-radio();
+}
+select {
+    .lib-form-element-input(@_type: select);
+    margin-bottom: 20px;
+}
+select[multiple="multiple"] {
+    .lib-css(height, auto);
+    margin-bottom: 20px;
+}
+select {
+    .lib-form-element-select(); //  ewave lib
+}
+//  input-group
+.input-group {
+    .lib-form-input-group();
+}
+//  reset
+input[type"number"] {
+    .lib-form-element-number-reset();
+}
+input[type="search"] {
+    .lib-form-element-search-reset();
+}
+input,
+textarea,
+select {
+    .lib-form-validation-note();
+}
+//  field: background-color, color
+input.text-example-1,
+select.select-example-1,
+textarea.textarea-example-1 {
+    .lib-form-element-color(
+        @_background: #fdf0d5,
+        @_border-color: #fc0,
+        @_color: #b30000,
+        @_focus-color: #060,
+        @_focus-border-color: #cff,
+        @_disabled-color: #fcc
+    );
+}
+input.text-example-1,
+textarea.textarea-example-1 {
+    .lib-form-element-color(
+        @_placeholder-color: #ccc
+    );
+}

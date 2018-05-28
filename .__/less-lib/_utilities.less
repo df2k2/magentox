@@ -1,0 +1,70 @@
+
+
+//false: 移除font-size属性; 如果false是变量且用于多个地方, 可实现同时移除font-size;
+.lib-css(font-size, false);
+//@prefix: 1, 实现添加prefix
+.lib-css(font-size, 14px, 1);
+
+// 隐藏
+.lib-visibility-hidden()//height: 0;visibility: hidden;
+.lib-visually-hidden();//rect+absolute
+.lib-visually-hidden-reset();//将'.lib-visually-hidde'使用过的属性 重置
+
+
+.lib-clearfix();//before(防相邻\父子边距塌陷), after
+.lib-clearer();//after
+
+
+.column.left {
+    .lib-url('images/fallback.png');
+    background:url("@{url}") repeat-y;
+}
+.columns {
+    .lib-url('images/fallback.png', 'Magento_Catalog');
+    background:url("@{url}") repeat;
+}
+
+//border 形成arrow
+.lib-arrow(left, 15px, @color-black);
+
+//朝上的arrow, 有border
+//无法控制方向, 考虑扩展: lib\web\css\source\lib\_utilities.less    line:505
+.lib-pointer(10px, blue, red);//red是border
+
+//remove space between inline-block
+.lib-inline-block-space-container();
+.lib-inline-block-space-item();//重置.lib-inline-block-space-container修改过的属性
+
+
+//
+//  Prefix
+//  ---------------------------------------------
+
+//IE9及以下/低版本chrome的兼容
+.lib-background-gradient(red, blue, horizontal/vertical, true, {true-背景色为end-color})
+
+
+// safari 8, IE 9
+.lib-rotate(@_rotation);//transofrm: rotate(...)
+
+
+
+//  Flex
+.flex-container {
+    .lib-vendor-prefix-display();//@_value: flex
+}
+.flex-item-01 {
+    .lib-vendor-prefix-flex-grow();//@_value: 0
+    .lib-vendor-prefix-flex-shrink();//@_value: 1
+    .lib-vendor-prefix-flex-basis();//@_value: auto;
+    .lib-vendor-prefix-flex-wrap();//@_value: wrap;
+    .lib-vendor-prefix-flex-direction();//@_value: column;
+    .lib-vendor-prefix-order();//0
+    .lib-vendor-box-align();//stretch
+}
+
+//  Misc
+.lib-input-placeholder(@color-gray60, @font-weight__regular);
+.lib-vendor-prefix-appearance();//none
+.lib-vendor-prefix-column-count(3);
+
